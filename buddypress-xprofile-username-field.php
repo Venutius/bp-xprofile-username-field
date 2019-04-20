@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 Plugin Name: BP xProfile Username Field
 Description: Add a Username selector custom field type to Extended Profiles in BuddyPress.
-Version: 0.2.5
+Version: 0.2.6
 Author: Venutius
 Author URI: http://buddyuser.com
 Plugin URI: http://buddyuser.com/plugin/bp-xprofile-username-field
@@ -333,7 +333,7 @@ class BP_XProfile_Username_Field {
 				$user = get_userdata( $value );
 				$value = $user->user_login;
 			} else {
-				$value = sanitaize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
+				$value = sanitize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
 			}
 			// apply content filter
 			$value = apply_filters( 'bp_xprofile_field_type_username_content', stripslashes( $value ) );

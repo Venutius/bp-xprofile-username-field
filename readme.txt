@@ -4,7 +4,7 @@ Donate Link: paypal.me/GeorgeChaplin
 Tags: buddypress, xprofile, field, tinymce, editor
 Requires at least: 3.5
 Tested up to: 5.2
-Stable tag: 0.2.5
+Stable tag: 0.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,6 +26,12 @@ The BP xProfile Username Field plugin adds a username drop down selector to Exte
 
 
 == Changelog ==
+
+= 0.2.6 =
+
+* 20/04/2019
+
+* Fix: Corrected typo in sanitize_text_field().
 
 = 0.2.5 =
 

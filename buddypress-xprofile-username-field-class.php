@@ -51,7 +51,7 @@ class BP_XProfile_Field_Type_Username extends BP_XProfile_Field_Type {
 		foreach ( $users as $user ) {
 			$user_list[$user->ID] = $user->user_login;
 		}
-		$user_list['-1'] = sanitaize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
+		$user_list['-1'] = sanitize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
 		
 		$data = bp_get_the_profile_field_edit_value();
 		if ( ! isset( $data ) || $data == '' ) $data = '-1';
@@ -89,7 +89,8 @@ class BP_XProfile_Field_Type_Username extends BP_XProfile_Field_Type {
 			foreach ( $users as $user ) {
 				$user_list[$user->ID] = $user->user_login;
 			}
-			$user_list['-1'] = sanitaize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
+			$user_list['-1'] = sanitize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
+			$data = '-1';
 			
 			?>
 			<div class="input-username">
@@ -97,7 +98,7 @@ class BP_XProfile_Field_Type_Username extends BP_XProfile_Field_Type {
 				
 				<select name="<?php bp_the_profile_field_input_name(); ?>" id="<?php bp_the_profile_field_input_name(); ?>">
 					<?php foreach ( $user_list as $user_id => $username ) : ?>
-						<option name="" value="<?php echo $user_id; ?>" ><?php echo $username; ?></option> 
+						<option name="" value="<?php echo $user_id; ?>" <?php if ( $data == $user_id ) echo 'selected'; ?>><?php echo $username; ?></option> 
 					<?php endforeach; ?>
 				</select>
 			</div>
