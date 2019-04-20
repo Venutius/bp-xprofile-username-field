@@ -1,0 +1,23 @@
+#buddypress table.mceToolbar
+{
+	width: auto;
+}
+
+#buddypress table.mceToolbar tr td,
+#buddypress table.mceToolbar tr th,
+#buddypress table.mceLayout tr td,
+#buddypress table.mceLayout tr th
+{
+	padding: 0;
+}
+
+#buddypress .standard-form textarea.wp-editor-area
+{
+	width: 100%;
+	height: auto;
+}
+
+#buddypress p.field-visibility-settings-toggle
+{
+	margin-bottom: 0;
+}
