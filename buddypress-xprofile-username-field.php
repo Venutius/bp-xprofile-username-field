@@ -3,7 +3,7 @@
 --------------------------------------------------------------------------------
 Plugin Name: BP xProfile Username Field
 Description: Add a Username selector custom field type to Extended Profiles in BuddyPress.
-Version: 0.2.6
+Version: 0.2.7
 Author: Venutius
 Author URI: http://buddyuser.com
 Plugin URI: http://buddyuser.com/plugin/bp-xprofile-username-field
@@ -209,7 +209,7 @@ class BP_XProfile_Username_Field {
 			foreach ( $users as $user ) {
 				$user_list[$user->ID] = $user->user_login;
 			}
-			$user_list['-1'] = sanitaize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
+			$user_list['-1'] = sanitaize_text_field( __( 'Not Selected', 'bp-xprofile-username-field' ) );
 
 			// start buffering
 			ob_start();
@@ -221,11 +221,11 @@ class BP_XProfile_Username_Field {
 			}
 			?>
 			<div class="input-username">
-				<legend class="label-form <?php if ( bp_get_the_profile_field_is_required() ) { ?>required<?php } ?>" for="<?php bp_the_profile_field_input_name() ?>"><?php bp_the_profile_field_name() ?> <?php if ( bp_get_the_profile_field_is_required() ) { echo __('*', 'bpxprofileunf'); } ?></legend>
+				<legend class="label-form <?php if ( bp_get_the_profile_field_is_required() ) { ?>required<?php } ?>" for="<?php bp_the_profile_field_input_name() ?>"><?php bp_the_profile_field_name() ?> <?php if ( bp_get_the_profile_field_is_required() ) { echo __('*', 'bp-xprofile-username-field'); } ?></legend>
 				
 				<select name="<?php bp_the_profile_field_input_name(); ?>" id="<?php bp_the_profile_field_input_name(); ?>">
 					<?php foreach ( $user_list as $user_id => $username ) : ?>
-						<option name="" value="<?php echo $user_id; ?>" <?php if ( $data == $user_id ) echo 'selected'; ?>><?php echo $username; ?></option> 
+						<option name="" value="<?php echo $username; ?>" <?php if ( $data == $username ) echo 'selected'; ?>><?php echo $username; ?></option> 
 					<?php endforeach; ?>
 				</select>
 			</div>
@@ -279,18 +279,18 @@ class BP_XProfile_Username_Field {
 			foreach ( $users as $user ) {
 				$user_list[$user->ID] = $user->user_login;
 			}
-			$user_list['-1'] = sanitaize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
+			$user_list['-1'] = sanitaize_text_field( __( 'Not Selected', 'bp-xprofile-username-field' ) );
 
 			// start buffering
 			ob_start();
 
 			?>
 			<div class="input-username">
-				<legend class="label-form <?php if ( bp_get_the_profile_field_is_required() ) { ?>required<?php } ?>" for="<?php bp_the_profile_field_input_name() ?>"><?php bp_the_profile_field_name() ?> <?php if ( bp_get_the_profile_field_is_required() ) { echo __('*', 'bpxprofileunf'); } ?></legend>
+				<legend class="label-form <?php if ( bp_get_the_profile_field_is_required() ) { ?>required<?php } ?>" for="<?php bp_the_profile_field_input_name() ?>"><?php bp_the_profile_field_name() ?> <?php if ( bp_get_the_profile_field_is_required() ) { echo __('*', 'bp-xprofile-username-field'); } ?></legend>
 				
 				<select name="<?php bp_the_profile_field_input_name(); ?>" id="<?php bp_the_profile_field_input_name(); ?>">
 					<?php foreach ( $user_list as $user_id => $username ) : ?>
-						<option name="" value="<?php echo $user_id; ?>" <?php if ( $data == $user_id ) echo 'selected'; ?>><?php echo $username; ?></option> 
+						<option name="" value="<?php echo $username; ?>" <?php if ( $data == $username ) echo 'selected'; ?>><?php echo $username; ?></option> 
 					<?php endforeach; ?>
 				</select>
 			</div>
@@ -328,13 +328,6 @@ class BP_XProfile_Username_Field {
 			global $field;
 			$value = $field->data->value;
 			
-			//convert user_id to username
-			if ( isset( $value ) && $value != '-1' ) {
-				$user = get_userdata( $value );
-				$value = $user->user_login;
-			} else {
-				$value = sanitize_text_field( __( 'Non Selected', 'bp-xprofile-username-field' ) );
-			}
 			// apply content filter
 			$value = apply_filters( 'bp_xprofile_field_type_username_content', stripslashes( $value ) );
 
@@ -410,7 +403,7 @@ class BP_XProfile_Username_Field {
 
 		// define translatable strings
 		$params = array(
-			'username' => __( 'Username', 'bpxprofileunf' )
+			'username' => __( 'Username', 'bp-xprofile-username-field' )
 		);
 
 		// localise
